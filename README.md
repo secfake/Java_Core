@@ -4,3 +4,7 @@
 ctrl + alt + L
 fori +tab
 hạn chế vòng lặp, tối ưu độ phức tạp
+
+Tập hợp method name và danh sách các parameter được gọi là method signature - duy nhất.
+
+phân biệt nạp chồng và....
