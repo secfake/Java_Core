@@ -8,3 +8,5 @@ hạn chế vòng lặp, tối ưu độ phức tạp
 Tập hợp method name và danh sách các parameter được gọi là method signature - duy nhất.
 
 phân biệt nạp chồng và....
+các phần tử mạng lưu trữ ô nhớ gần nhau
+<data type> [] <array name> = new <data type>[<element numer>];
