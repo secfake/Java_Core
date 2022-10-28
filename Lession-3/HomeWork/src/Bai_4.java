@@ -2,24 +2,22 @@ import java.util.Scanner;
 
 public class Bai_4 {
     public static void main(String[] args) {
-        int n;
         int m = 2;
-        String ketqua ="";
-        Scanner sc = new Scanner(System.in);
+        String ketqua = "";
         System.out.print("Nhập n: ");
-        n = sc.nextInt();
+        int n = new Scanner(System.in).nextInt();
         System.out.printf("Dãy %d số nguyên tố đầu tiền là: ", n);
-        while (n>0){
+        while (n > 0) {
             boolean check = true;
-            for (int i = 2; i < m; i++){
+            for (int i = 2; i <= Math.sqrt(m); i++) {
                 if (m % i == 0)
                     check = false;
             }
-            if (check){
-                n-=1;
-                ketqua+=m + " ";
+            if (check) {
+                n -= 1;
+                ketqua += m + " ";
             }
-            m+=1;
+            m += 1;
         }
         System.out.println(ketqua);
     }

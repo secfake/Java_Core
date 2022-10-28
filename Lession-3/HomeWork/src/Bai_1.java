@@ -2,26 +2,25 @@ import java.util.Scanner;
 
 public class Bai_1 {
     public static void main(String[] args) {
-        int a,b,c,d,max;
-        Scanner sc = new Scanner(System.in);
+        int a, b, c, d, max;
         System.out.print("Nhập số a: ");
-        a = sc.nextInt();
+        a = new Scanner(System.in).nextInt();
         System.out.print("Nhập số b: ");
-        b = sc.nextInt();
+        b = new Scanner(System.in).nextInt();
         System.out.print("Nhập số c: ");
-        c = sc.nextInt();
+        c = new Scanner(System.in).nextInt();
         System.out.print("Nhập số d: ");
-        d = sc.nextInt();
-        if (a > b){
+        d = new Scanner(System.in).nextInt();
+        if (a > b) {
             max = a;
-        }else{
+        } else {
             max = b;
         }
         if (max < c)
-            max =c;
+            max = c;
         if (max < d)
-            max =d;
-        System.out.printf("Số lớn nhất trong 4 số %d, %d, %d, %d là %d",a,b,c,d,max);
+            max = d;
+        System.out.printf("\nSố lớn nhất trong 4 số %d, %d, %d, %d là %d", a, b, c, d, max);
 
     }
 }
