@@ -1,10 +1,10 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bai_3 {
+public class Bai_24 {
     public static void main(String[] args) {
         int[] a = nhap();
-        sapXepTang(a);
+        sapXepGiam(a);
     }
 
     public static int[] nhap() {
@@ -22,11 +22,11 @@ public class Bai_3 {
         return a;
     }
 
-    public static void sapXepTang(int[] a) {
+    public static void sapXepGiam(int[] a) {
         int n = a.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                if (a[j] > a[j + 1]) {
+                if (a[j] < a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;

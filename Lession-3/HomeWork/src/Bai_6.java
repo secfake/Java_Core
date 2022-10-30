@@ -11,7 +11,6 @@ public class Bai_6 {
             int m = n % 10;
             sum += m;
             s1 = m + s1;
-            n -= m % 10;
             n /= 10;
             if (n > 0) {
                 s1 = " + " + s1;

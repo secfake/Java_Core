@@ -7,12 +7,9 @@ public class Bai_5 {
         int m = n;
         int check = 0;
         while (m > 0) {
-            check += m % 10;
-            m -= m % 10;
+            check = check * 10 + m % 10;
             m /= 10;
-            check *= 10;
         }
-        check /= 10;
         if (check == n) {
             System.out.printf("%d là số thuận nghịch!", n);
         } else {

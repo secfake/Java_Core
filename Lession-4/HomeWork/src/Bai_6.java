@@ -3,26 +3,41 @@ import java.util.Scanner;
 
 public class Bai_6 {
     public static void main(String[] args) {
-        int n;
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhập n: ");
-        n = sc.nextInt();
+        int n = new Scanner(System.in).nextInt();
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.printf("Nhập a[%d]: ", i);
-            a[i] = sc.nextInt();
+            a[i] = new Scanner(System.in).nextInt();
         }
-        int max_1 = a[0];
-        int max_2 = a[0];
-        for (int i = 0; i < n - 1; i++)
-            if (a[i] < a[i + 1]) {
-                max_1 = a[i + 1];
+        int b, c;
+        while (true) {
+            System.out.print("Nhập b: ");
+            b = new Scanner(System.in).nextInt();
+            System.out.print("Nhập c: ");
+            c = new Scanner(System.in).nextInt();
+            if (b < c) {
+                break;
+            } else {
+                System.out.println("Nhập b < c! Nhập lại!");
             }
-        for (int i = 0; i < n - 1; i++)
-            if (a[i] < a[i + 1] && a[i + 1] != max_1) {
-                max_2 = a[i + 1];
-            }
+        }
         System.out.println("Dãy số nguyên: " + Arrays.toString(a));
-        System.out.println(max_2);
+        System.out.printf("Trung bình cộng các số trong khoảng [%d,%d] là: %.2f", b, c, trungBinh(a, n, b, c));
+    }
+
+    public static float trungBinh(int[] a, int n, int b, int c) {
+        int sum = 0;
+        int k = 0;
+        for (int i = 0; i < n; i++) {
+            if (a[i] >= b && a[i] <= c) {
+                sum += a[i];
+                k += 1;
+            }
+        }
+        if (k==0){
+            return 0;
+        }
+        return (float) sum / k;
     }
 }

@@ -1,10 +1,12 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bai_3 {
+public class Bai_20 {
     public static void main(String[] args) {
         int[] a = nhap();
+        System.out.println("Mảng ban đầu: " + Arrays.toString(a));
         sapXepTang(a);
+        chenMang(a);
     }
 
     public static int[] nhap() {
@@ -33,6 +35,28 @@ public class Bai_3 {
                 }
             }
         }
-        System.out.println("Dãy số nguyên: " + Arrays.toString(a));
+        System.out.println("Mảng sắp xếp: " + Arrays.toString(a));
+    }
+
+    public static void chenMang(int[] a) {
+        System.out.print("Nhập x: ");
+        int x = new Scanner(System.in).nextInt();
+        int n = a.length;
+        int[] b = new int[n+1];
+        int vitri =n;
+        for (int i = 0; i < n; i++) {
+            if (x<=a[i]){
+                vitri =i;
+                break;
+            }
+        }
+        for (int i = 0; i < vitri; i++) {
+            b[i]=a[i];
+        }
+        b[vitri]=x;
+        for (int i = vitri; i <n ; i++) {
+            b[i+1]=a[i];
+        }
+        System.out.println("Mảng chèn x: " + Arrays.toString(b));
     }
 }

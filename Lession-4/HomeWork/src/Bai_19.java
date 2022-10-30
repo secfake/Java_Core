@@ -1,10 +1,12 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bai_3 {
+public class Bai_19 {
     public static void main(String[] args) {
         int[] a = nhap();
-        sapXepTang(a);
+        System.out.println("Mảng : "+ Arrays.toString(a));
+        System.out.println("Số lớn nhất: "+max(a));
+        System.out.println("Số nhỏ nhất: "+min(a));
     }
 
     public static int[] nhap() {
@@ -22,17 +24,22 @@ public class Bai_3 {
         return a;
     }
 
-    public static void sapXepTang(int[] a) {
-        int n = a.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (a[j] > a[j + 1]) {
-                    int temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
-                }
+    public static int max(int[] a){
+        int max = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (max < a[i]){
+                max = a[i];
             }
         }
-        System.out.println("Dãy số nguyên: " + Arrays.toString(a));
+        return max;
+    }
+    public static int min(int[] a){
+        int min = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (min > a[i]){
+                min = a[i];
+            }
+        }
+        return min;
     }
 }

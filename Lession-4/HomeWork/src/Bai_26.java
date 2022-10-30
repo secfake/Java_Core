@@ -1,10 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bai_3 {
+public class Bai_26 {
     public static void main(String[] args) {
         int[] a = nhap();
-        sapXepTang(a);
+        System.out.println("Mảng số nguyên: " + Arrays.toString(a));
+        timx(a);
     }
 
     public static int[] nhap() {
@@ -22,17 +23,18 @@ public class Bai_3 {
         return a;
     }
 
-    public static void sapXepTang(int[] a) {
+    public static void timx(int[] a) {
         int n = a.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (a[j] > a[j + 1]) {
-                    int temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
-                }
+        int temp = 0;
+        System.out.print("Nhập x: ");
+        int x = new Scanner(System.in).nextInt();
+        for (int i = 0; i < n; i++) {
+            if (a[i] == x) {
+                temp += 1;
             }
         }
-        System.out.println("Dãy số nguyên: " + Arrays.toString(a));
+        System.out.printf("Số %d xuất hiện %d lần ", x, temp);
     }
 }
+
+
