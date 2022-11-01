@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Bai_23 {
@@ -12,9 +13,7 @@ public class Bai_23 {
             System.out.print("Nhập m: ");
             m = new Scanner(System.in).nextInt();
         }
-        System.out.println("\nNhập ma trận A");
         int[][] a = nhap("a", n, m);
-        System.out.println("\nNhập ma trận B");
         int[][] b = nhap("b", n, m);
         int[][] c = tongMaTran(a, b);
         xuat(a, "A");
@@ -24,9 +23,10 @@ public class Bai_23 {
 
     public static int[][] nhap(String s, int n, int m) {
         int[][] a = new int[n][m];
+        System.out.println("Nhập ma trận "+s.toUpperCase());
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                System.out.printf("Nhập %s[%d][%d]: ", s, i, j);
+                System.out.printf("  Nhập %s[%d][%d]: ", s, i, j);
                 a[i][j] = new Scanner(System.in).nextInt();
             }
         }

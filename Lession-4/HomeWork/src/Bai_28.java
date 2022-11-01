@@ -16,9 +16,10 @@ public class Bai_28 {
             n = new Scanner(System.in).nextInt();
         }
         int[][] a = new int[n][n];
+        System.out.println("Nhập ma trận:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.printf("Nhập a[%d][%d]: ", i, j);
+                System.out.printf("  Nhập a[%d][%d]: ", i, j);
                 a[i][j] = new Scanner(System.in).nextInt();
             }
         }
@@ -26,7 +27,7 @@ public class Bai_28 {
     }
 
     public static void xuat(int[][] a) {
-        System.out.println("Ma trận ");
+        System.out.println("Ma trận: ");
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length; j++) {
                 System.out.print("\t" + a[i][j]);

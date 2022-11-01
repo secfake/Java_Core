@@ -11,12 +11,13 @@ public class Bai_3 {
         System.out.print("Nhập n: ");
         int n = new Scanner(System.in).nextInt();
         while (n <= 0) {
-            System.out.print("Nhập lại n >0: ");
+            System.out.print("Nhập lại n > 0: ");
             n = new Scanner(System.in).nextInt();
         }
         int[] a = new int[n];
+        System.out.println("Nhập dãy số:");
         for (int i = 0; i < n; i++) {
-            System.out.printf("Nhập a[%d]: ", i);
+            System.out.printf("\tNhập a[%d]: ", i);
             a[i] = new Scanner(System.in).nextInt();
         }
         return a;

@@ -16,8 +16,9 @@ public class Bai_25 {
             n = new Scanner(System.in).nextInt();
         }
         int[] a = new int[n];
+        System.out.println("Nhập mảng:");
         for (int i = 0; i < n; i++) {
-            System.out.printf("Nhập a[%d]: ", i);
+            System.out.printf("  Nhập a[%d]: ", i);
             a[i] = new Scanner(System.in).nextInt();
         }
         return a;

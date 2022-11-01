@@ -3,17 +3,30 @@ import java.util.Scanner;
 
 public class Bai_8 {
     public static void main(String[] args) {
-        System.out.print("Nhập n: ");
-        int n = new Scanner(System.in).nextInt();
-        int[] a = new int[n];
+        int[] a = nhap();
+        int n = a.length;
         int[] b = new int[n];
-        for (int i = 0; i < n; i++) {
-            System.out.printf("Nhập a[%d]: ", i);
-            a[i] = new Scanner(System.in).nextInt();
-        }
         soLanXuatHien(a, b);
         int max = viTriMax(b);
         xuatPhanTu(a, b, max);
+    }
+
+    public static int[] nhap() {
+        System.out.print("Nhập n: ");
+        int n = new Scanner(System.in).nextInt();
+        while (n <= 0) {
+            System.out.print("Nhập lại n > 0: ");
+            n = new Scanner(System.in).nextInt();
+        }
+        int[] a = new int[n];
+        System.out.println("Nhập mảng số nguyên dương: ");
+        for (int i = 0; i < n; i++) {
+            do {
+                System.out.printf("\tNhập a[%d]: ", i);
+                a[i] = new Scanner(System.in).nextInt();
+            } while (a[i] <= 0);
+        }
+        return a;
     }
 
     public static int[] soLanXuatHien(int[] a, int[] b) {
@@ -33,7 +46,6 @@ public class Bai_8 {
         for (int i = 1; i < b.length; i++) {
             if (max < b[i]) {
                 max = b[i];
-
             }
         }
         return max;

@@ -4,9 +4,9 @@ public class Bai_21 {
     public static void main(String[] args) {
         int[][] a = nhap();
         xuat(a);
-        System.out.println("Tổng các phần tử: "+tinhTong(a));
-        float tb = (float) tinhTong(a)/(a.length*a[0].length);
-        System.out.println("Trung bình cộng các phần tử: "+tb);
+        System.out.println("Tổng các phần tử: " + tinhTong(a));
+        float tb = (float) tinhTong(a) / (a.length * a[0].length);
+        System.out.println("Trung bình cộng các phần tử: " + tb);
     }
 
     public static int[][] nhap() {
@@ -21,9 +21,10 @@ public class Bai_21 {
             m = new Scanner(System.in).nextInt();
         }
         int[][] a = new int[n][m];
+        System.out.println("Nhâp ma trận:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                System.out.printf("Nhập a[%d][%d]: ", i, j);
+                System.out.printf("  Nhập a[%d][%d]: ", i, j);
                 a[i][j] = new Scanner(System.in).nextInt();
             }
         }
@@ -44,7 +45,7 @@ public class Bai_21 {
         int sum = 0;
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[0].length; j++) {
-                sum +=a[i][j];
+                sum += a[i][j];
             }
         }
         return sum;

@@ -2,12 +2,10 @@ import java.util.Scanner;
 
 public class Bai_12 {
     public static void main(String[] args) {
-        System.out.print("Nhập m: ");
-        int m = new Scanner(System.in).nextInt();
-        System.out.print("Nhập n: ");
-        int n = new Scanner(System.in).nextInt();
-        System.out.print("Nhập k: ");
-        int k = new Scanner(System.in).nextInt();
+        System.out.println("Nhập n, m, k lớn hơn 0:");
+        int m = nhap("m");
+        int n = nhap("n");
+        int k = nhap("k");
         System.out.println("\nNhập ma trận A:");
         int[][] a = nhap(m, n, "a");
         System.out.println("\nNhập ma trận B:");
@@ -18,11 +16,21 @@ public class Bai_12 {
         xuat(c, "tích");
     }
 
+    public static int nhap(String s) {
+        System.out.print("  Nhập " + s + ": ");
+        int n = new Scanner(System.in).nextInt();
+        while (n <= 0) {
+            System.out.print("  Nhập lại " + s + ": ");
+            n = new Scanner(System.in).nextInt();
+        }
+        return n;
+    }
+
     public static int[][] nhap(int m, int n, String s) {
         int[][] a = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.printf("Nhập %s[%d][%d]: ", s, i, j);
+                System.out.printf("  Nhập %s[%d][%d]: ", s, i, j);
                 a[i][j] = new Scanner(System.in).nextInt();
             }
         }
