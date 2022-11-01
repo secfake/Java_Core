@@ -10,3 +10,10 @@ Tập hợp method name và danh sách các parameter được gọi là method 
 phân biệt nạp chồng và....
 các phần tử mạng lưu trữ ô nhớ gần nhau
 <data type> [] <array name> = new <data type>[<element numer>];
+
+
+- Tạo 2 biến nguyên thủy và thay đổi chúng bằng cách gán.
+- Tạo 2 đối tượng và thay đổi giá trị các thuộc tính của chúng bằng các gán.
+  
+  NULL - chưa cấp phát ô nhớ nào
+  static được dùng 4 chỗ: biến, hàm , class, khối code - chạy trước cả contractor
