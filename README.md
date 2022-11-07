@@ -17,3 +17,11 @@ các phần tử mạng lưu trữ ô nhớ gần nhau
   
   NULL - chưa cấp phát ô nhớ nào
   static được dùng 4 chỗ: biến, hàm , class, khối code - chạy trước cả contractor
+  
+  mục đích hàm - tái sử dụng code
+ hướng đôi tượng mấy tính chất?
+  đóng gói- 1 cơ chế
+ đóng gói: level class + 
+  
+  khác biệt default và protected - khác ở kế thừa
+  
