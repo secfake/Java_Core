@@ -17,3 +17,13 @@ các phần tử mạng lưu trữ ô nhớ gần nhau
   
   NULL - chưa cấp phát ô nhớ nào
   static được dùng 4 chỗ: biến, hàm , class, khối code - chạy trước cả contractor
+  
+  mục đích hàm - tái sử dụng code
+ hướng đôi tượng mấy tính chất?
+  đóng gói- 1 cơ chế
+ đóng gói: level class & level packet
+  
+  khác biệt default và protected - khác ở kế thừa
+  vì sao java ko hỗ trợ đa kế thừa - Đúng với thực tế và nguyên tắc IS – A - tôi là cái gì
+  AGGREGATION (HAS 05 -A)- tôi có cái gì
+  overload & override
