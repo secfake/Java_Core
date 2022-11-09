@@ -27,3 +27,12 @@ các phần tử mạng lưu trữ ô nhớ gần nhau
   vì sao java ko hỗ trợ đa kế thừa - Đúng với thực tế và nguyên tắc IS – A - tôi là cái gì
   AGGREGATION (HAS 05 -A)- tôi có cái gì
   overload & override
+  
+ ABSTRACT CLASS ko tạo bằng new  vì hàm ảo ko có thân ko thực thi được
+ ko có ABSTRACT method chả sao
+ interface quan tâm khả năng ko có thuộc tính/ chỉ chứa các phương thức abstract
+ 
+ class có thuộc tính/ khả năng liên quan đến định danh => là cái gì
+ còn interface đại diện cho khả năng => có khả năng gì => có nhiều khả năng
+ 
+ java ko có đa kế thừa
