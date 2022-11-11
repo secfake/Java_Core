@@ -210,8 +210,8 @@ public class AssignmentHandle {
     public static void sort() {
         int count = isEmptyAssignment();
         System.out.println("-----Sắp xếp danh sách phân công-----");
-        System.out.println("1. Sếp xếp theo tên");
-        System.out.println("2. Sắp xếp số tuyến");
+        System.out.println("1. Sếp xếp theo họ tên lái xe");
+        System.out.println("2. Sắp xếp theo số tuyến đảm nhận");
         System.out.print("Chọn: ");
         int ch;
         do {
