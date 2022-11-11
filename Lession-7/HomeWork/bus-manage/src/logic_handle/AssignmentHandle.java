@@ -51,18 +51,9 @@ public class AssignmentHandle {
                 continue;
             }
             System.out.println("Phân công lái xe thứ " + (count));
-            boolean check = true;
             do {
-
                 busDriver = searchDriver();
-                for (int i = 0; i < isEmptyAssignment(); i++) {
-                    if (MainRun.assignmentDrivers[i].getBusDriver().getId() == busDriver.getId()) {
-                        System.out.println("Lái xe đã được phân công, mời nhập lại!");
-                        check = false;
-                        break;
-                    }
-                }
-                if (check) {
+                if (checkDriver(busDriver)) {
                     break;
                 }
             } while (true);
@@ -89,17 +80,29 @@ public class AssignmentHandle {
 
         AssignmentRoute[] assignmentRoutes = new AssignmentRoute[num];
         for (int i = 0; i < num; i++) {
-           
-            AssignmentRoute assignmentRoute = addAssignmentRoute();
-            totalTurn += assignmentRoute.getNumTurn();
-            if (totalTurn > 15) {
-                System.out.println("Tổng số lượt đã quá 15!");
-                break;
-            }
-            assignmentRoutes[i] = assignmentRoute;
+            do {
+                AssignmentRoute assignmentRoute = addAssignmentRoute();
+                boolean check = true;
+                for (int j = 0; j < i; j++) {
+                    if (assignmentRoutes[j].getBusRoute().getId() == assignmentRoute.getBusRoute().getId()) {
+                        System.out.println("Tuyến xe đã được chọn, mời chọn tuyến khác");
+                        check = false;
+                    }
+                }
+                if (check) {
+                    totalTurn += assignmentRoute.getNumTurn();
+                    if (totalTurn > 15) {
+                        System.out.println("Tổng số lượt đã quá 15!");
+                        break;
+                    }
+                    assignmentRoutes[i] = assignmentRoute;
+                    break;
+                }
+            } while (true);
         }
         return assignmentRoutes;
     }
+
 
     public static AssignmentRoute addAssignmentRoute() {
         BusRoute busRoute = searchRoute();
@@ -117,6 +120,18 @@ public class AssignmentHandle {
     }
 
     /// tìm lái xe
+    public static boolean checkDriver(BusDriver busDriver) {
+        for (int i = 0; i < isEmptyAssignment(); i++) {
+            if (MainRun.assignmentDrivers[i].getBusDriver().getId() == busDriver.getId()) {
+                System.out.println("Lái xe đã được phân công, mời nhập lại!");
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
     public static BusDriver searchDriver() {
         BusDriver busDriver = null;
         do {
