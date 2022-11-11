@@ -9,11 +9,37 @@ import sun.applet.Main;
 
 import java.util.Scanner;
 
+import static logic_handle.BusRouteHandle.isEmptyRoute;
+import static logic_handle.BusDriverLHandle.isEmptyDriver;
+
 public class AssignmentHandle {
+
+    public static int isEmptyAssignment() {
+        int count = 0;
+        for (int i = 0; i < MainRun.assignmentDrivers.length; i++) {
+            if (MainRun.assignmentDrivers[i] == null) {
+                break;
+            }
+            count += 1;
+        }
+        return count;
+    }
+
     // phân công lái xe
     public static void inputAssignment() {
+        if (isEmptyRoute() == 0 || isEmptyDriver() == 0) {
+            System.out.println("Mời nhập danh sách lái xe và tuyến đường trước");
+            return;
+        }
         System.out.print("Nhập số lái xe cần phân công: ");
-        int driverNum = new Scanner(System.in).nextInt();
+        int driverNum;
+        do {
+            driverNum = new Scanner(System.in).nextInt();
+            if (driverNum > 0 && driverNum <= isEmptyDriver()) {
+                break;
+            }
+            System.out.print("Số lái xe phải nhỏ hơn tổng số lại xe hiện có, nhập lại:");
+        } while (true);
         BusDriver busDriver;
         AssignmentRoute[] assignmentRoutes;
         int count = 1;
@@ -25,7 +51,21 @@ public class AssignmentHandle {
                 continue;
             }
             System.out.println("Phân công lái xe thứ " + (count));
-            busDriver = searchDriver();
+            boolean check = true;
+            do {
+
+                busDriver = searchDriver();
+                for (int i = 0; i < isEmptyAssignment(); i++) {
+                    if (MainRun.assignmentDrivers[i].getBusDriver().getId() == busDriver.getId()) {
+                        System.out.println("Lái xe đã được phân công, mời nhập lại!");
+                        check = false;
+                        break;
+                    }
+                }
+                if (check) {
+                    break;
+                }
+            } while (true);
             assignmentRoutes = addAssignmentRoutesArry();
             AssignmentDriver assignmentDriver = new AssignmentDriver(busDriver, assignmentRoutes);
             MainRun.assignmentDrivers[j] = assignmentDriver;
@@ -41,13 +81,15 @@ public class AssignmentHandle {
         int totalTurn = 0;
         do {
             num = new Scanner(System.in).nextInt();
-            if (num > 0) {
+            if (num > 0 && num <= isEmptyRoute()) {
                 break;
             }
-            System.out.print("Số tuyến phải lớn hơn 0, nhập lại: ");
+            System.out.print("Số tuyến phải lớn hơn 0 và nhỏ hơn số tuyến trong danh sách hiện có, nhập lại: ");
         } while (true);
+
         AssignmentRoute[] assignmentRoutes = new AssignmentRoute[num];
         for (int i = 0; i < num; i++) {
+           
             AssignmentRoute assignmentRoute = addAssignmentRoute();
             totalTurn += assignmentRoute.getNumTurn();
             if (totalTurn > 15) {
@@ -101,7 +143,8 @@ public class AssignmentHandle {
             if (id >= 10000 && id <= 99999) {
                 break;
             }
-            System.out.println("Mã lái xe có 5 chữ số, mời nhập lại:");
+            System.out.print("Mã lái xe có 5 chữ số, mời nhập lại:");
+
         } while (true);
         return id;
     }
@@ -114,8 +157,8 @@ public class AssignmentHandle {
             id = new Scanner(System.in).nextInt();
             if (id >= 100 && id <= 999) {
                 break;
-            }
-            System.out.println("Mã tuyến có 3 chữ số, mời nhập lại:");
+            } else
+                System.out.print("Mã tuyến có 3 chữ số, mời nhập lại:");
         } while (true);
         return id;
     }
@@ -150,13 +193,7 @@ public class AssignmentHandle {
 
     // sắp xếp
     public static void sort() {
-        int count = 0;
-        for (int i = 0; i < MainRun.assignmentDrivers.length; i++) {
-            if (MainRun.assignmentDrivers[i] == null) {
-                break;
-            }
-            count += 1;
-        }
+        int count = isEmptyAssignment();
         System.out.println("-----Sắp xếp danh sách phân công-----");
         System.out.println("1. Sếp xếp theo tên");
         System.out.println("2. Sắp xếp số tuyến");
@@ -179,6 +216,7 @@ public class AssignmentHandle {
         }
     }
 
+    // sắp xếp theo số tuyến
     private static void sortNumRoute(int count) {
         for (int i = 0; i < count; i++) {
             int sum = 0;
@@ -205,6 +243,7 @@ public class AssignmentHandle {
 
     }
 
+    ///sắp xếp theo tên
     public static void sortName(int count) {
         AssignmentDriver temp;
         for (int i = 0; i < count; i++) {
@@ -241,20 +280,20 @@ public class AssignmentHandle {
         return false;
     }
 
-// tính tổng khoảng chạy xe chạy
-    public static  void distance(){
+    // tính tổng khoảng chạy xe chạy
+    public static void distance() {
         for (int i = 0; i < MainRun.assignmentDrivers.length; i++) {
-            if (MainRun.assignmentDrivers[i]==null){
+            if (MainRun.assignmentDrivers[i] == null) {
                 break;
             }
             float sum = 0;
             AssignmentRoute[] assignmentRoutes = MainRun.assignmentDrivers[i].getAssignmentRoutes();
             for (int j = 0; j < assignmentRoutes.length; j++) {
                 if (assignmentRoutes[j] != null) {
-                    sum += assignmentRoutes[j].getBusRoute().getDistance();
+                    sum += assignmentRoutes[j].getBusRoute().getDistance() * assignmentRoutes[j].getNumTurn();
                 }
             }
-            System.out.println(MainRun.assignmentDrivers[i].getBusDriver()+ "\tKhoảng cách chạy: "+sum);
+            System.out.println(MainRun.assignmentDrivers[i].getBusDriver() + "\tKhoảng cách chạy: " + sum);
         }
     }
 }

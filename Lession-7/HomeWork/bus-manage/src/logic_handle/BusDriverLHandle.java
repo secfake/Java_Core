@@ -35,12 +35,15 @@ public class BusDriverLHandle {
             System.out.println(MainRun.busDrivers[i]);
         }
     }
-    public static boolean isEmptyDriver() {
+
+    public static int isEmptyDriver() {
+        int count = 0;
         for (int i = 0; i < MainRun.busDrivers.length; i++) {
-            if (MainRun.busDrivers[i] != null) {
-                return false;
+            if (MainRun.busDrivers[i] == null) {
+                break;
             }
+            count += 1;
         }
-        return true;
+        return count;
     }
 }

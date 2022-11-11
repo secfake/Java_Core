@@ -36,12 +36,14 @@ public class BusRouteHandle {
             System.out.println(MainRun.busRoutes[i]);
         }
     }
-    public static boolean isEmptyRoute() {
+    public static int isEmptyRoute() {
+        int count = 0;
         for (int i = 0; i < MainRun.busRoutes.length; i++) {
-            if (MainRun.busRoutes[i] != null) {
-                return false;
+            if (MainRun.busRoutes[i] == null) {
+                break;
             }
+            count += 1;
         }
-        return true;
+        return count;
     }
 }
