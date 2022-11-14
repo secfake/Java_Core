@@ -66,8 +66,8 @@ public class Sales_logic {
                 System.out.print("Nhâp số lượng đã bán: ");
                 int quantity = new Scanner(System.in).nextInt();
                 ItemManagenment itemManagenment = new ItemManagenment(item, quantity);
-                for (int j = 0; j <= i; j++) {
-                    if (itemManagenments[j].getItem().getId() == itemManagenment.getItem().getId()) {
+                for (int j = 0; j < itemNum; j++) {
+                    if (itemManagenments[j]!=null&&itemManagenments[j].getItem().getId() == itemManagenment.getItem().getId()) {
                         System.out.println("Mặt hàng đã được chọn, mời chọn mặt hàng khác");
                         break;
                     }
