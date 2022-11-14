@@ -46,23 +46,27 @@ public class Sales_logic {
         int itemNum;
         do {
             itemNum = new Scanner(System.in).nextInt();
-            if (itemNum > 0 && itemNum <= MainRun.COUNT_ITEM) {
-                if (itemNum <= 5) {
+            if (itemNum > 0 && itemNum <= 5) {
+                if (itemNum <= MainRun.COUNT_ITEM) {
                     break;
                 }
-                System.out.println("Nhập số mặt hàng nhỏ hơn 5");
+                System.out.println("Nhập số mặt không lớn hơn mặt hàng hiện có");
+            } else {
+                System.out.println("Số mặt hàng lớn hơn 0 và không lớn hơn 5 mặt hàng hiên có");
             }
-            System.out.println("Số mặt hàng lớn hơn 0 và không lớn hơn số mặt hàng hiên có");
-
         } while (true);
 
         ItemManagenment[] itemManagenments = new ItemManagenment[itemNum];
-        for (int i = 0; i < itemNum; i++) {
+
+        for (int i = 0; i < itemManagenments.length; i++) {
             do {
 
                 int temp = 0;
-                ItemManagenment itemManagenment = addItemManagenment();
-                for (int j = 0; j < i; j++) {
+                Item item = findItem();
+                System.out.print("Nhâp số lượng đã bán: ");
+                int quantity = new Scanner(System.in).nextInt();
+                ItemManagenment itemManagenment = new ItemManagenment(item, quantity);
+                for (int j = 0; j <= i; j++) {
                     if (itemManagenments[j].getItem().getId() == itemManagenment.getItem().getId()) {
                         System.out.println("Mặt hàng đã được chọn, mời chọn mặt hàng khác");
                         break;
@@ -74,18 +78,12 @@ public class Sales_logic {
                     break;
                 }
             } while (true);
+
         }
+
         return itemManagenments;
     }
 
-    private static ItemManagenment addItemManagenment() {
-
-        Item item = findItem();
-        System.out.print("Nhâp số lượng đã bán: ");
-        int quantity = new Scanner(System.in).nextInt();
-        ItemManagenment itemManagenment = new ItemManagenment(item, quantity);
-        return itemManagenment;
-    }
 
     private static int inputIdItem() {
         System.out.print("Nhập mã mặt hàng: ");
@@ -94,9 +92,11 @@ public class Sales_logic {
             id = new Scanner(System.in).nextInt();
             if (id >= 1000 && id <= 9999) {
                 break;
-            } else
-                System.out.print("Mã mặt hàng có 4 chữ số, mời nhập lại:");
+            }
+
+            System.out.print("Mã mặt hàng có 4 chữ số, mời nhập lại:");
         } while (true);
+
         return id;
     }
 
@@ -226,16 +226,16 @@ public class Sales_logic {
                 Item item1 = itemManagenments[j].getItem();
                 for (int k = 0; k < itemManagenments.length; k++) {
                     Item item2 = itemManagenments[k].getItem();
-                    if (item1.getType().compareTo(item2.getType())>0){
+                    if (item1.getType().compareTo(item2.getType()) > 0) {
                         ItemManagenment temp = itemManagenments[j];
-                        itemManagenments[j]= itemManagenments[k];
-                        itemManagenments[k]=temp;
+                        itemManagenments[j] = itemManagenments[k];
+                        itemManagenments[k] = temp;
+                    }
                 }
-            }
                 MainRun.salerManagements[i].setItemManagenments(itemManagenments);
+            }
+
         }
 
     }
-
-}
 }
