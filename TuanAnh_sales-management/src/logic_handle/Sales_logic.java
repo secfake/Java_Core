@@ -55,25 +55,26 @@ public class Sales_logic {
                 System.out.println("Số mặt hàng lớn hơn 0 và không lớn hơn 5 mặt hàng hiên có");
             }
         } while (true);
-
+        System.out.println(itemNum);
         ItemManagenment[] itemManagenments = new ItemManagenment[itemNum];
 
-        for (int i = 0; i < itemManagenments.length; i++) {
+        for (int i = 0; i < itemNum; i++) {
             do {
 
                 int temp = 0;
                 Item item = findItem();
-                System.out.print("Nhâp số lượng đã bán: ");
-                int quantity = new Scanner(System.in).nextInt();
-                ItemManagenment itemManagenment = new ItemManagenment(item, quantity);
-                for (int j = 0; j < itemNum; j++) {
-                    if (itemManagenments[j]!=null&&itemManagenments[j].getItem().getId() == itemManagenment.getItem().getId()) {
+                for (int j = 0; j < i; j++) {
+                    if (itemManagenments[j].getItem().getId() == item.getId()) {
                         System.out.println("Mặt hàng đã được chọn, mời chọn mặt hàng khác");
                         break;
                     }
                     temp += 1;
                 }
-                if (temp > i) {
+
+                if (temp == i) {
+                    System.out.print("Nhâp số lượng đã bán: ");
+                    int quantity = new Scanner(System.in).nextInt();
+                    ItemManagenment itemManagenment = new ItemManagenment(item, quantity);
                     itemManagenments[i] = itemManagenment;
                     break;
                 }
@@ -209,9 +210,9 @@ public class Sales_logic {
             for (int j = 0; j < countSalerManagements(); j++) {
                 Saler saler2 = MainRun.salerManagements[j].getSaler();
                 if (saler1.getName().compareTo(saler2.getName()) > 0) {
-                    SalerManagement temp = MainRun.salerManagements[i];
-                    MainRun.salerManagements[i] = MainRun.salerManagements[j];
-                    MainRun.salerManagements[j] = temp;
+                    SalerManagement temp = MainRun.salerManagements[j];
+                    MainRun.salerManagements[j] = MainRun.salerManagements[i];
+                    MainRun.salerManagements[i] = temp;
                 }
             }
 
@@ -227,9 +228,9 @@ public class Sales_logic {
                 for (int k = 0; k < itemManagenments.length; k++) {
                     Item item2 = itemManagenments[k].getItem();
                     if (item1.getType().compareTo(item2.getType()) > 0) {
-                        ItemManagenment temp = itemManagenments[j];
-                        itemManagenments[j] = itemManagenments[k];
-                        itemManagenments[k] = temp;
+                        ItemManagenment temp = itemManagenments[k];
+                        itemManagenments[k] = itemManagenments[j];
+                        itemManagenments[j] = temp;
                     }
                 }
                 MainRun.salerManagements[i].setItemManagenments(itemManagenments);

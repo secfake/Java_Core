@@ -85,8 +85,8 @@ public class MainRun {
 
     public static void sortMenu() {
         System.out.println("-----Sắp xếp danh sách phân công-----");
-        System.out.println("1. Sếp xếp theo họ tên lái xe");
-        System.out.println("2. Sắp xếp theo số tuyến đảm nhận");
+        System.out.println("1. Sếp xếp theo họ tên");
+        System.out.println("2. Sắp xếp theo nhóm hàng");
         System.out.println("3. Thoát");
         System.out.print("Chọn: ");
         int ch;
