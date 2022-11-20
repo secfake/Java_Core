@@ -1,6 +1,8 @@
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Member {
@@ -88,6 +90,7 @@ public class Member {
             }
             break;
         }while (true);
-
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        Date date = simpleDateFormat.parse(d);
     }
 }
