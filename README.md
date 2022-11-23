@@ -36,3 +36,4 @@ các phần tử mạng lưu trữ ô nhớ gần nhau
  còn interface đại diện cho khả năng => có khả năng gì => có nhiều khả năng
  
  java ko có đa kế thừa
+ final và finally khác gì
