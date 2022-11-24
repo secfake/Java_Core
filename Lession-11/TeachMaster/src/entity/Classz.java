@@ -1,3 +1,5 @@
+package entity;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +15,7 @@ public class Classz {
         this.subject = subject;
     }
 
-    public ArrayList<Student>  getStudents() {
+    public ArrayList<Student> getStudents() {
         return this.students;
     }
 
@@ -23,29 +25,36 @@ public class Classz {
 
     @Override
     public String toString() {
-        return "Classz{" +
+        return "Class{" +
                 "subject='" + subject + '\'' +
                 ", students=" + students +
                 '}';
     }
-    public void inputInfo(Scanner scanner){
+
+    public void inputInfo(Scanner scanner) {
         System.out.print("Subject: ");
         this.subject = scanner.nextLine();
         this.students = inpuStudent(scanner);
     }
-    public ArrayList<Student> inpuStudent(Scanner scanner){
+
+    public ArrayList<Student> inpuStudent(Scanner scanner) {
         int num;
         System.out.print("Enter student number: ");
-        do {
-            num= Integer.parseInt(scanner.nextLine());
-            if (num>0){
+        while (true) {
+            try {
+                num = Integer.parseInt(scanner.nextLine());
+                if (num <= 0) {
+                    throw new Exception();
+                }
                 break;
+            } catch (Exception e) {
+                System.out.print("Invalid, re-enter: ");
             }
-            System.out.print("Invalid, re-enter: ");
-        }while (true);
+        }
+
         ArrayList<Student> students = new ArrayList<>();
         for (int i = 0; i < num; i++) {
-            System.out.println("Student "+(i+1));
+            System.out.println("Student " + (i + 1));
             Student student = new Student();
             student.inputInfo(scanner);
             students.add(student);

@@ -1,3 +1,5 @@
+package entity;
+
 import java.util.Scanner;
 
 public class Student {
@@ -5,6 +7,11 @@ public class Student {
     private String name;
     private int age;
     private String rank;
+    private static int autoId = 1;
+
+    public Student() {
+        this.id = autoId++;
+    }
 
     public int getId() {
         return id;
@@ -47,13 +54,23 @@ public class Student {
                 ", rank='" + rank + '\'' +
                 '}';
     }
-    public void inputInfo(Scanner scanner){
-        System.out.print("ID: ");
-        this.id = Integer.parseInt(scanner.nextLine());
+
+    public void inputInfo(Scanner scanner) {
         System.out.print("Name: ");
         this.name = scanner.nextLine();
         System.out.print("Age: ");
-        this.age = Integer.parseInt(scanner.nextLine());
+        while (true) {
+            try {
+                this.age = Integer.parseInt(scanner.nextLine());
+                if (this.age < 10 || this.age > 50) {
+                    throw new Exception();
+                }
+                break;
+            } catch (Exception e) {
+                System.out.print("Invalid, re-enter: ");
+            }
+        }
+
         System.out.print("Rank: ");
         this.rank = scanner.nextLine();
     }

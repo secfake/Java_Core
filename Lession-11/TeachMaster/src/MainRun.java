@@ -1,55 +1,63 @@
+import Hanlde.Logic;
+import entity.Student;
+import entity.TeachMaster;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainRun {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         TeachMaster teachMaster = new TeachMaster();
-        teachMaster.inputInfo(scanner);
-        System.out.println(teachMaster);
-        //////////
-
-        System.out.println("Add students: ");
-        ArrayList<Student> temp = teachMaster.getClassz().inpuStudent(scanner);
-        teachMaster.getClassz().getStudents().addAll(temp);
-        System.out.println(teachMaster);
+        while (true) {
+            menu(teachMaster);
+        }
 
 
-        ////////
-        System.out.println("Update rank of student: ");
-        System.out.print("Enter Id: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        boolean check = true;
-        for (int i = 0; i < teachMaster.getClassz().getStudents().size(); i++) {
-            if (id == teachMaster.getClassz().getStudents().get(i).getId()) {
-                System.out.print("Update rank: ");
-                teachMaster.getClassz().getStudents().get(i).setRank(scanner.nextLine());
-                check = false;
+    }
+
+    public static void menu(TeachMaster teachMaster) {
+        Scanner scanner = new Scanner(System.in);
+        if (teachMaster.getClassz()==null){
+            System.out.println("No data! Please enter!");
+            teachMaster.inputInfo(scanner);
+            return;
+        }
+        System.out.println("=========== Techmaster ============");
+        System.out.println("1. Show details of Teachmaster");
+        System.out.println("2. Add students");
+        System.out.println("3. Update rank by Id");
+        System.out.println("4. Delete student");
+        System.out.println("5. Exit");
+        System.out.print("Please choose: ");
+        int ch;
+        while (true) {
+            try {
+                ch = Integer.parseInt(scanner.nextLine());
+                if (ch < 1 || ch > 5) {
+                    throw new Exception();
+                }
                 break;
+            } catch (Exception e) {
+                System.out.print("Please choose again: ");
             }
         }
-        if (check) {
-            System.out.println("Không tìm thấy!");
-        }
-        System.out.println(teachMaster);
-
-        /////
-        System.out.println("Delete student: ");
-        System.out.print("Enter Id: ");
-        id = Integer.parseInt(scanner.nextLine());
-        check = true;
-        for (int i = 0; i < teachMaster.getClassz().getStudents().size(); i++) {
-            if (id == teachMaster.getClassz().getStudents().get(i).getId()) {
-                teachMaster.getClassz().getStudents().remove(i);
-                System.out.println("Complete!");
-                check = false;
+        Logic logic = new Logic();
+        switch (ch) {
+            case 1:
+                System.out.println(teachMaster);
                 break;
-            }
-        }
-        if (check) {
-            System.out.println("Không tìm thấy!");
-        }
+            case 2:
+                logic.addStudent(teachMaster.getClassz().getStudents(), scanner);
+                break;
+            case 3:
+                logic.updateRank(teachMaster.getClassz().getStudents(), scanner);
+                break;
+            case 4:
+                logic.deleteStudent(teachMaster.getClassz().getStudents(), scanner);
+                break;
+            case 5:
+                System.exit(0);
 
-        System.out.println(teachMaster);
+        }
     }
 }

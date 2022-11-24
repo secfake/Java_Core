@@ -1,3 +1,7 @@
+package entity;
+
+import entity.Classz;
+
 import java.util.Scanner;
 
 public class TeachMaster {
