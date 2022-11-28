@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d05c04-8b42-4773-bbfb-f46ad0bed8f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lab3/src/MainRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab3/src/Worker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab3/src/WorkerAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Petpairing/src/constant/Sex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Petpairing/src/constant/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Petpairing/src/entity/Pet.java" afterDir="false" />
+    <list default="true" id="10b65649-09bb-45b8-9cd1-7ae23f0e9b02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Generic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyGenneric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="2HzjB6kUNxcdROh0Cw0oIXfVAGd" />
+  <component name="ProjectId" id="2IAs74wuo6LIjhMloSHriGK1hA6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,37 +34,29 @@
     <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="Generic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Generic" />
+      <module name="demo" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Generic" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="71d05c04-8b42-4773-bbfb-f46ad0bed8f4" name="Default Changelist" comment="" />
-      <created>1669294671336</created>
+      <changelist id="10b65649-09bb-45b8-9cd1-7ae23f0e9b02" name="Default Changelist" comment="" />
+      <created>1669555181426</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669294671336</updated>
-      <workItem from="1669294672818" duration="645000" />
+      <updated>1669555181426</updated>
+      <workItem from="1669555183267" duration="1247000" />
+      <workItem from="1669635574017" duration="714000" />
     </task>
     <servers />
   </component>
@@ -77,5 +73,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
