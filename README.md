@@ -32,6 +32,9 @@ các phần tử mạng lưu trữ ô nhớ gần nhau
  ko có ABSTRACT method chả sao
  interface quan tâm khả năng ko có thuộc tính/ chỉ chứa các phương thức abstract
  
+ khác nhau comparable và comparator
+ set và list khác nhau
+ 
  class có thuộc tính/ khả năng liên quan đến định danh => là cái gì
  còn interface đại diện cho khả năng => có khả năng gì => có nhiều khả năng
  
