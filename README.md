@@ -43,3 +43,5 @@ các phần tử mạng lưu trữ ô nhớ gần nhau
  set và list khác nhau
  
  arraylist khác gì vectơ => 1.5, 2
+ 
+ jav8 và java cao cấp hơn khác ở lamda, stream
